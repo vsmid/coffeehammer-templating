@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coffeehammer-templating</title>
+  </head>
+  <body>
+    <script src="./htmlhammer.min.js"></script>
+    <script type="module">
+      const { div } = htmlhammer;
+      import { Movie } from "./build/Movie.js";
+
+      // Helper function
+      const render = (...elements) =>
+        document.body.append(div({ id: "root" }, ...elements));
+
+      // Data to be rendered
+      const TheQueensGambit = {
+        title: "The Queen's Gambit",
+        creators: ["Scott Frank", "Allan Scott"],
+        stars: ["Anya Taylor-Joy", "Chloe Pirrie", "Bill Camp"],
+        about: { year: 2020, stars: "8.6/10", genres: ["Drama", "Sports"] },
+        imdb:
+          "https://www.imdb.com/title/tt10048342/?ref_=hm_fanfav_tt_3_pd_fp1",
+      };
+
+      // Render movie to the document.body
+      render(Movie(TheQueensGambit));
+    </script>
+  </body>
+</html>
